@@ -66,10 +66,6 @@
 ```
 
 ##### 8.	Now we need to create com.example.servlet.xml file
-    a.	Add spring-mvc and spring-context to schemaLocation
-    b.	Add context:component-scan
-    c.	Add mvc:annotation-driven
-    d.	Add vireResolver
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
@@ -148,7 +144,7 @@ public class TestController {
 		<version>1.2.14</version>
 	</dependency>
 ```		
-    d.	Create a log4j.properties in the classpath ideally in /src/main/resources
+    d.	Create a log4j.properties in the classpath, in /src/main/resources
 
 
 
