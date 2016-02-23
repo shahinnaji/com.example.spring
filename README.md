@@ -46,12 +46,12 @@
 ##### 7.	Now we need to add Dispatcher servlet to web.xml
 ```xml
 <servlet>
-	<servlet-name>com.example</servlet-name>
+	<servlet-name>example</servlet-name>
 	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
-	<servlet-name>com.example</servlet-name>
+	<servlet-name>example</servlet-name>
 	<url-pattern>/</url-pattern>
        </servlet-mapping>
 
@@ -65,7 +65,7 @@
 </listener>
 ```
 
-##### 8.	Now we need to create com.example.servlet.xml file
+##### 8.	Now we need to create example-servlet.xml file
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
@@ -86,6 +86,7 @@
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
+	</bean>	
 </bean>
 ```
 
