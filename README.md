@@ -79,7 +79,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd"
 >
 
-	<context:component-scan base-package="emporia.mvc" />
+	<context:component-scan base-package="com.example.spring.mvc" />
 
 	<mvc:annotation-driven />
 
