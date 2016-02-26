@@ -174,6 +174,14 @@ public class TestController {
 	</dependency>
 ```		
     d.	Create a log4j.properties in the classpath, in /src/main/resources
+    e.  Here is a sample
+```xml
+# Root logger option
+log4j.rootLogger=TRACE, stdout
 
-
-
+# Redirect log messages to console
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %-5p [%c] - %m%n
+```
