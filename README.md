@@ -24,21 +24,33 @@
 ##### 3.	Open POM  file and let’s add libraries for Spring 4
 
     a.	http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#overview-maven-bom
-    b.	Add bill of materials to pom file and describes above
+    b.	Add bill of materials to pom file as describes above
     
 ##### 4.	 Add following dependencies for minimum MVC web app
 
 ```xml 
-<dependencies>
-  <dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-context</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-	</dependency>
-</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>4.2.2.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+	</dependencies>
 ```
 ##### 5.	Add <web-app header to web.xml
     a.	http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#websocket-server-deployment
