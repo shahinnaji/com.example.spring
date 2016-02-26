@@ -21,12 +21,12 @@
     
     a.	Right click on project and select “Configure” select “Convert to Maven Project”
     
-##### 4.	Open POM  file and let’s add libraries for Spring 4
+##### 3.	Open POM  file and let’s add libraries for Spring 4
 
     a.	http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#overview-maven-bom
     b.	Add bill of materials to pom file and describes above
     
-##### 5.	 Add following dependencies for minimum MVC web app
+##### 4.	 Add following dependencies for minimum MVC web app
 
 ```xml 
 <dependencies>
@@ -40,10 +40,10 @@
 	</dependency>
 </dependencies>
 ```
-##### 6.	Add <web-app header to web.xml
+##### 5.	Add <web-app header to web.xml
     a.	http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#websocket-server-deployment
 
-##### 7.	Now we need to add Dispatcher servlet to web.xml
+##### 6.	Now we need to add Dispatcher servlet to web.xml
 ```xml
 <servlet>
 	<servlet-name>example</servlet-name>
@@ -64,8 +64,36 @@
 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 </listener>
 ```
+##### 6-1. Here is the complete web.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+        http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
 
-##### 8.	Now we need to create example-servlet.xml file
+	<servlet>
+		<servlet-name>example</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>example</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/example-servlet.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+</web-app>
+```
+
+##### 7.	Now we need to create example-servlet.xml file
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
@@ -90,9 +118,9 @@
 </bean>
 ```
 
-##### 9.	Add jsp folder with welcome.jsp file in it.
+##### 8.	Add jsp folder with welcome.jsp file in it.
 
-##### 10.	Add Controller
+##### 9.	Add Controller
 ```java
 package com.example.spring.mvc;
 
@@ -109,7 +137,7 @@ public class TestController {
       }
 ```
 
-##### 11.	Add slf4j with log4j implementation	
+##### 10.	Add slf4j with log4j implementation	
     a.	First add following to pom file, we need to make the commons-logging to be excluded
     b.	Read more here: http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#overview-not-using-commons-logging
     c.
